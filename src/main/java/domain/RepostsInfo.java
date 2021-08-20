@@ -1,8 +1,8 @@
 package domain;
 
-public class RepostsInfo {      // информация о репостах записи («Рассказать друзьям»)
-    private int count;          // число пользователей, скопировавших запись
-    private int userReposted;   // наличие репоста от текущего пользователя (1 — есть, 0 — нет)
+public class RepostsInfo {          // информация о репостах записи («Рассказать друзьям»)
+    private int count;              // число пользователей, скопировавших запись
+    private boolean userReposted;   // наличие репоста от текущего пользователя (1 — есть, 0 — нет)
 
     public int getCount() {
         return count;
@@ -12,14 +12,13 @@ public class RepostsInfo {      // информация о репостах за
         this.count = count;
     }
 
-    public int getUserReposted() {
+    public boolean isUserReposted() {
         return userReposted;
     }
 
-    public void setUserReposted(int userReposted) {
+    public void setUserReposted(boolean userReposted) {
         this.userReposted = userReposted;
     }
-
 }
 
 

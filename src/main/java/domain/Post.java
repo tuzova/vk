@@ -12,9 +12,9 @@ public class Post {
     private boolean friendsOnly;        // true, если запись была создана с опцией «Только для друзей» (int изначально)
     private String postType;            // тип записи, может принимать следующие значения: post, copy, reply, postpone, suggest
     private int signerId;               // идентификатор автора, если запись была опубликована от имени сообщества и подписана пользователем
-    private int canPin;                 // может ли текущий пользователь закрепить запись (1 — может, 0 — не может)
-    private int canDelete;              // может ли текущий пользователь удалить запись (1 — может, 0 — не может)
-    private int canEdit;                // может ли текущий пользователь редактировать запись (1 — может, 0 — не может)
+    private boolean canPin;             // может ли текущий пользователь закрепить запись (1 — может, 0 — не может)
+    private boolean canDelete;          // может ли текущий пользователь удалить запись (1 — может, 0 — не может)
+    private boolean canEdit;            // может ли текущий пользователь редактировать запись (1 — может, 0 — не может)
     private int isPinned;               // информация о том, что запись закреплена
     private boolean markedAsAds;        // true, если запись содержит отметку "реклама" (int изначально)
     private boolean isFavorite;         // true, если объект добавлен в закладки у текущего пользователя
@@ -118,28 +118,28 @@ public class Post {
         return signerId;
     }
 
-    public int getCanPin() {
+    public boolean isCanPin() {
         return canPin;
     }
 
-    public void setCanPin(int canPin) {
+    public void setCanPin(boolean canPin) {
         this.canPin = canPin;
     }
 
-    public void setCanDelete(int canDelete) {
-        this.canDelete = canDelete;
-    }
-
-    public int getCanDelete() {
+    public boolean isCanDelete() {
         return canDelete;
     }
 
-    public void setCanEdit(int canEdit) {
-        this.canEdit = canEdit;
+    public void setCanDelete(boolean canDelete) {
+        this.canDelete = canDelete;
     }
 
-    public int getCanEdit() {
+    public boolean isCanEdit() {
         return canEdit;
+    }
+
+    public void setCanEdit(boolean canEdit) {
+        this.canEdit = canEdit;
     }
 
     public void setIsPinned(int isPinned) {
