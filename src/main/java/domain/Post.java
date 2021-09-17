@@ -19,6 +19,12 @@ public class Post {
     private boolean markedAsAds;        // true, если запись содержит отметку "реклама" (int изначально)
     private boolean isFavorite;         // true, если объект добавлен в закладки у текущего пользователя
     private int postponedId;            // идентификатор отложенной записи. Это поле возвращается тогда, когда запись стояла на таймере
+    private char postId;                // идентификатор записи на стене, положительное число
+    private String domain;              // короткий адрес пользователя или сообщества
+    private String query;               // поисковой запрос, максимальная длина 9000
+    private boolean ownersOnly;         // 1 — возвращать только записи от имени владельца стены. Может принимать значения 1 или 0
+    private int count = 20;             // количество записей, которые необходимо вернуть. Положительное число, по умолчанию 20, максимальное значение 100
+    private int offset;                 // смещение, необходимо для получения определенного подмножества результатов. Положительное число, по умолчанию 0
     private CommentsInfo commentsInfo;  // метод CommentsInfo.java - информация о комментариях к записи
     private Copyright copyright;        // метод Copyright.java - источник материала
     private LikesInfo likesInfo;        // метод LikesInfo.java - информация о лайках к записи
@@ -28,7 +34,6 @@ public class Post {
     private Geo geo;                    // метод Geo.java - информация о местоположении
     private Donut donut;                // метод Donut.java - информация о записи VK Donut
     private Complain complain;          // метод Complain.java - отправка жалобы на запись
-
 
     public void setId(int id) {
         this.id = id;
@@ -172,6 +177,54 @@ public class Post {
 
     public int getPostponedId() {
         return postponedId;
+    }
+
+    public char getPostId() {
+        return postId;
+    }
+
+    public void setPostId(char postId) {
+        this.postId = postId;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public boolean isOwnersOnly() {
+        return ownersOnly;
+    }
+
+    public void setOwnersOnly(boolean ownersOnly) {
+        this.ownersOnly = ownersOnly;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getOffset() {
+        return offset;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
     }
 
     public CommentsInfo getCommentsInfo() {
